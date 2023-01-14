@@ -73,6 +73,44 @@ let firstName: string | string[]; // can be one string or an array of strings
 
 
 
+//TYPE ALIAS
+//pure ts feature. Not a js feature. It is a type definition
+type Trainee = {
+    name: string;
+    age: number;
+};
+
+let trainee: Trainee;
+
+trainee = {
+    name: 'Ceyanne',
+    age: 19
+};
+
+//creates an array of Trainee objects
+let trainingRegister: Trainee[];
+
+//FUNCTIONS &  TYPES
+function addition(a: number,b:number): number {
+    return a + b;
+}
+
+//If the return type is void like in the function below it means the function does not return anything
+function printOut(value: any) {
+    console.log(value);
+}
+
+
+//GENERICS
+function insertAtBeginning(array: any[], value: any) {
+    const newArray = [value, ...array];
+    return newArray;
+}
+
+const demoArray = [1,2,3]
+
+const updatedArray = insertAtBeginning(demoArray, -1)  // this outputs [-1, 1, 2, 3]
+
 
 
 
