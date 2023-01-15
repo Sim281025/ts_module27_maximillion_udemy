@@ -102,7 +102,8 @@ function printOut(value: any) {
 
 
 //GENERICS
-function insertAtBeginning(array: any[], value: any) {
+//Gives flexibility of any type to be used, but once a type is executed in the function then the type is set.
+function insertAtBeginning<T>(array: T[], value: T) {
     const newArray = [value, ...array];
     return newArray;
 }
@@ -110,6 +111,22 @@ function insertAtBeginning(array: any[], value: any) {
 const demoArray = [1,2,3]
 
 const updatedArray = insertAtBeginning(demoArray, -1)  // this outputs [-1, 1, 2, 3]
+
+//Because you have set the type to string in the example below the 2nd argument has to be a string
+// const stringArray = insertAtBeginning(['a', 'b', 'c'], -1)  // this outputs [-1, 1, 2, 3]
+ const stringArray = insertAtBeginning(['a', 'b', 'c'], 'd')  // this outputs [-1, 1, 2, 3]
+
+
+
+// //DIFFERENT WAYS OF WRITING TYPES
+// //infered
+// let numbers = [1, 2, 3]
+//
+// //Long proper way
+// let numbers: Array<number> = [1, 2, 3]
+//
+// //syntactic sugar
+// let numbers: number[]: = [1 ,2, 3]
 
 
 
